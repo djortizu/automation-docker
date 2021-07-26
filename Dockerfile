@@ -20,3 +20,7 @@ RUN wget -q -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.google
 	&& mv /opt/chromedriver /opt/chromedriver-$CHROME_DRIVER_VERSION \
 	&& chmod 755 /opt/chromedriver-$CHROME_DRIVER_VERSION \
 	&& ln -fs /opt/chromedriver-$CHROME_DRIVER_VERSION /usr/bin/chromedriver
+
+RUN apt-get update -qqy \
+	&& apt-get -qqy install xvfb \
+	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/*
